@@ -23,10 +23,20 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r v2/requirements.txt
     
-    - name: Syntax check
+    - name: Syntax check - main.py
+      run: python -m py_compile main.py
+    
+    - name: Syntax check - check_env.py
+      run: python -m py_compile check_env.py
+    
+    - name: Syntax check - v2 modules
       run: |
-        python -m py_compile main.py
-        python -m py_compile v2/*.py
+        python -m py_compile v2/__init__.py
+        python -m py_compile v2/eagle_reader.py
+        python -m py_compile v2/jellyfin_client.py
+        python -m py_compile v2/movie_nfo_updater.py
+        python -m py_compile v2/nfo_writer.py
+        python -m py_compile v2/sync_v2_simple.py
     
     - name: Check imports
       run: |
