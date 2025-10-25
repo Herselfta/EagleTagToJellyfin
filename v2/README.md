@@ -1,6 +1,6 @@
-# Eagle到Jellyfin标签同步工具 V2
+# Eagle到Jellyfin标签同步工具 - 详细文档
 
-这是一个全新重构的版本，用于将Eagle库中的标签同步到Jellyfin媒体库。
+> 这是 v2 模块的详细技术文档。用户指南请查看 [根目录 README](../README.md)。
 
 ## 功能特点
 

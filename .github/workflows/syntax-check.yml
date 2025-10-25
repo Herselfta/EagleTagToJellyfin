@@ -1,0 +1,33 @@
+name: Python Syntax Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  syntax-check:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r v2/requirements.txt
+    
+    - name: Syntax check
+      run: |
+        python -m py_compile main.py
+        python -m py_compile v2/*.py
+    
+    - name: Check imports
+      run: |
+        python -c "import sys; sys.path.insert(0, 'v2'); import eagle_reader, jellyfin_client, movie_nfo_updater, nfo_writer, sync_v2_simple"
