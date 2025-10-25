@@ -1,0 +1,10 @@
+{
+  "eagle": {
+    "library_path": "E:\\Medias.library"
+  },
+  "jellyfin": {
+    "url": "http://localhost:8096",
+    "api_key": "YOUR_API_KEY_HERE",
+    "library_id": "YOUR_LIBRARY_ID_HERE"
+  }
+}
